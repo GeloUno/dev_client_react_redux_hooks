@@ -7,6 +7,12 @@ import { userLogout } from '../../action/auth';
 const NavBar = ({ auth: {isAuthenticated}, userLogout }) => {
   const authLink = (
     <ul>
+    <li>
+    <Link to="/dashboard">
+    <i className="fas fa-user" />{' '}
+    <span className="hiden-sm">Dashboard</span>
+    </Link>
+  </li>
       <li>
         <a href="#!" onClick={userLogout}>
           <i className="fas fa-sign-out-alt" />{' '}
