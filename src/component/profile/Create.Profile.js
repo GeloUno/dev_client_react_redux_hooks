@@ -1,8 +1,11 @@
 import React, { useState, Fragment } from 'react';
+import {Link, withRouter} from 'react-router-dom'
 import PropTypes from 'prop-types';
-import connect from '../Auth/Register';
+import { connect } from 'react-redux';
+import { createProfile } from '../../action/profile';
 
-const CreateProfile = () => {
+
+const CreateProfile = ({createProfile, history}) => {
   const [formData, setFormData] = useState({
     company: '',
     status: '',
@@ -31,6 +34,11 @@ const CreateProfile = () => {
   } = formData;
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = e =>{
+      e.preventDefault();
+      createProfile(formData,history)
+    }
   return (
     <Fragment>
       <h1 className="large text-primary">Create Your Profile</h1>
@@ -39,9 +47,13 @@ const CreateProfile = () => {
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className="form">
-        <div className="form-group">
-          <select name="status">
+      <form className="form" onSubmit={e=>onSubmit(e)}>
+       
+      <div className="form-group">
+          <select name="status" 
+          value={status}
+            onChange={e => onChange(e)}
+          >
             <option value="0">* Select Professional Status</option>
             <option value="Developer">Developer</option>
             <option value="Junior Developer">Junior Developer</option>
@@ -58,7 +70,13 @@ const CreateProfile = () => {
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Company" name="company" />
+          <input
+            type="text"
+            placeholder="Company"
+            name="company"
+            value={company}
+            onChange={e => onChange(e)}
+          />
           <small className="form-text">
             Could be your own company or one you work for
           </small>
@@ -169,7 +187,11 @@ const CreateProfile = () => {
   );
 };
 
-CreateProfile.propTypes = {};
-const mapStateToProps = state => {};
+CreateProfile.propTypes = {
+  createProfile:PropTypes.func.isRequired,
+};
 
-export default CreateProfile;
+export default connect(
+  null,
+  { createProfile }
+)(withRouter(CreateProfile));
