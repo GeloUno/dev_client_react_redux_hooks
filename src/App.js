@@ -16,30 +16,33 @@ import store from './store';
 import setAuthToken from './utils/token';
 
 import { loadUser } from './action/auth';
-
+import CreateProfile from './component/profile/Create.Profile';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 const App = () => {
-
   useEffect(() => {
-    store.dispatch(
-      loadUser());
+    store.dispatch(loadUser());
   }, []);
-  
+
   return (
     <Provider store={store}>
       <Router>
         <Fragment>
           <NavBar />
-          <Route exact path="/" component={Landing}></Route>
+          <Route exact path="/" component={Landing} />
           <section className="container">
             <Alert />
             <Switch>
-              <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/register" component={Register}></Route>
-              <PrivateRoute exact path="/dashboard" component={Dashboard}></PrivateRoute>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
             </Switch>
           </section>
         </Fragment>

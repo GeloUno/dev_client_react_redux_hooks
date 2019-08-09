@@ -1,4 +1,4 @@
-import { PROFILE_GET, PROFILE_ERROR } from '../action/types';
+import { PROFILE_GET, PROFILE_ERROR, PROFILE_CLEAR } from '../action/types';
 
 const initialState = {
   profile: null,
@@ -24,6 +24,14 @@ export default function(state = initialState, action) {
         profile: null,
         loading: false,
         error: payload
+      };
+    case PROFILE_CLEAR:
+      return {
+        ...state,
+        profile: null,
+        loading: false,
+        repos:[],
+        error: null
       };
 
     default:
