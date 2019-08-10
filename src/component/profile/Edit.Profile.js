@@ -1,17 +1,21 @@
-import React, { useState, Fragment } from 'react';
-import {Link, withRouter} from 'react-router-dom'
+import React, { useState, useEffect, Fragment } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../action/profile';
+import { getCurrentProfile } from './../../action/profile';
 
-
-const CreateProfile = ({createProfile, history}) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getCurrentProfile,
+  history
+}) => {
   const [formData, setFormData] = useState({
     company: '',
     status: '',
     skills: '',
     website: '',
-    social: '',
     facebook: '',
     githubname: '',
     youtube: '',
@@ -25,7 +29,6 @@ const CreateProfile = ({createProfile, history}) => {
     website,
     status,
     skills,
-    social,
     facebook,
     githubname,
     youtube,
@@ -35,25 +38,37 @@ const CreateProfile = ({createProfile, history}) => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e =>{
-      e.preventDefault();   
-      createProfile(formData,history)
-    }
+  useEffect(() => {
+    getCurrentProfile();
+    setFormData({
+      company: loading || !profile.company ? undefined : profile.company,
+      website: loading || !profile.website ? undefined : profile.website,
+      status: loading || !profile.status ? undefined : profile.status,
+      skills: loading || !profile.skills ? undefined : profile.skills.join(','),
+      social: loading || !profile.social ? undefined : profile.social,
+      facebook: loading || !profile.social ? undefined : profile.social.facebook,
+      githubname: loading || !profile.social ? undefined : profile.social.githubname,
+      youtube: loading || !profile.social ? undefined : profile.social.youtube,
+      location: loading || !profile.location ? undefined : profile.location,
+      bio: loading || !profile.bio ? undefined : profile.bio
+    });
+  }, [loading]);
+
+  const onSubmit = e => {
+    e.preventDefault();
+    createProfile(formData, history, true);
+  };
   return (
     <Fragment>
-      <h1 className="large text-primary">Create Your Profile</h1>
+      <h1 className="large text-primary">Update Your Profile</h1>
       <p className="lead">
         <i className="fas fa-user" /> Let's get some information to make your
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className="form" onSubmit={e=>onSubmit(e)}>
-       
-      <div className="form-group">
-          <select name="status" 
-          value={status}
-            onChange={e => onChange(e)}
-          >
+      <form className="form" onSubmit={e => onSubmit(e)}>
+        <div className="form-group">
+          <select name="status" value={status} onChange={e => onChange(e)}>
             <option value="0">* Select Professional Status</option>
             <option value="Developer">Developer</option>
             <option value="Junior Developer">Junior Developer</option>
@@ -187,11 +202,15 @@ const CreateProfile = ({createProfile, history}) => {
   );
 };
 
-CreateProfile.propTypes = {
-  createProfile:PropTypes.func.isRequired,
+EditProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
-
+const mapStatToProps = state => ({
+  profile: state.profile
+});
 export default connect(
-  null,
-  { createProfile }
-)(withRouter(CreateProfile));
+  mapStatToProps,
+  { createProfile, getCurrentProfile }
+)(withRouter(EditProfile));

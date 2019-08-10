@@ -5,6 +5,7 @@ import { getCurrentProfile } from './../../action/profile';
 import Spinner from './../Layout/Spinner';
 import { PROFILE_ERROR } from './../../action/types';
 import { Link } from 'react-router-dom';
+import ActionDashboard from './Action.Dashboard';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -26,11 +27,13 @@ const Dashboard = ({
       </p>
       {profile === null ? (
         <Fragment>
-       <p> You have not profile</p>
-        <Link to='/create-profile' className='btn btn-primary my-1'>Create Profile</Link>
+          <p> You have not profile</p>
+          <Link to="/create-profile" className="btn btn-primary my-1">
+            Create Profile
+          </Link>
         </Fragment>
       ) : (
-        <Fragment>Have profile</Fragment>
+        <ActionDashboard />
       )}
     </Fragment>
   );

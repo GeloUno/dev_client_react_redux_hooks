@@ -31,14 +31,15 @@ export const createProfile = (
   };
   try {
     const res = await axios.post('/api/profile',formData, config);
+   
     dispatch({
       type: PROFILE_GET,
       payload: res.data
     });
-    dispatch(setAlert(edit === false ? 'Profile Updated' : 'Profile Created'));
-    if (!edit) {
+    dispatch(setAlert(edit === true ? 'Profile Updated' : 'Profile Created'));
+    
       history.push('/dashboard');
-    }
+    
   } catch (error) {
     
     const err = error.response.data.errors;
