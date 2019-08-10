@@ -41,16 +41,16 @@ const EditProfile = ({
   useEffect(() => {
     getCurrentProfile();
     setFormData({
-      company: loading || !profile.company ? undefined : profile.company,
-      website: loading || !profile.website ? undefined : profile.website,
-      status: loading || !profile.status ? undefined : profile.status,
-      skills: loading || !profile.skills ? undefined : profile.skills.join(','),
-      social: loading || !profile.social ? undefined : profile.social,
-      facebook: loading || !profile.social ? undefined : profile.social.facebook,
-      githubname: loading || !profile.social ? undefined : profile.social.githubname,
-      youtube: loading || !profile.social ? undefined : profile.social.youtube,
-      location: loading || !profile.location ? undefined : profile.location,
-      bio: loading || !profile.bio ? undefined : profile.bio
+      company: loading || !profile.company ? '' : profile.company,
+      website: loading || !profile.website ? '' : profile.website,
+      status: loading || !profile.status ? '' : profile.status,
+      skills: loading || !profile.skills ? '' : profile.skills.join(','),
+      social: loading || !profile.social ? '' : profile.social,
+      facebook: loading || !profile.social ? '' : profile.social.facebook,
+      githubname: loading || !profile.social ? '' : profile.social.githubname,
+      youtube: loading || !profile.social ? '' : profile.social.youtube,
+      location: loading || !profile.location ? '' : profile.location,
+      bio: loading || !profile.bio ? '' : profile.bio
     });
   }, [loading]);
 
