@@ -6,6 +6,8 @@ import Spinner from './../Layout/Spinner';
 import { PROFILE_ERROR } from './../../action/types';
 import { Link } from 'react-router-dom';
 import ActionDashboard from './Action.Dashboard';
+import Experience from './Experience';
+import Education from './Education';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -33,7 +35,11 @@ const Dashboard = ({
           </Link>
         </Fragment>
       ) : (
+        <Fragment>
         <ActionDashboard />
+        <Experience/>
+        <Education/>
+        </Fragment>
       )}
     </Fragment>
   );

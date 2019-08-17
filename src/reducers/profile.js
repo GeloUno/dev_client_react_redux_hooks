@@ -1,4 +1,12 @@
-import { PROFILE_GET, PROFILE_ERROR, PROFILE_CLEAR } from '../action/types';
+import { 
+  PROFILE_GET,
+  PROFILE_ERROR,
+  PROFILE_CLEAR,
+  PROFILE_EXPERIENCE_UPDEATE,
+  PROFILE_EDUCATION_UPDEATE,
+  PROFILE_EDUCATION_DELETE,
+  PROFILE_EXPERIENCE_DELETE
+} from '../action/types';
 
 const initialState = {
   profile: null,
@@ -12,6 +20,10 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case PROFILE_GET:
+    case PROFILE_EXPERIENCE_UPDEATE:
+    case PROFILE_EDUCATION_UPDEATE:
+    case PROFILE_EDUCATION_DELETE:
+    case PROFILE_EXPERIENCE_DELETE:
       return {
         ...state,
         profile: payload,
@@ -30,7 +42,7 @@ export default function(state = initialState, action) {
         ...state,
         profile: null,
         loading: false,
-        repos:[],
+        repos: [],
         error: null
       };
 
