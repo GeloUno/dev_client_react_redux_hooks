@@ -1,11 +1,12 @@
-import { 
+import {
   PROFILE_GET,
   PROFILE_ERROR,
   PROFILE_CLEAR,
   PROFILE_EXPERIENCE_UPDEATE,
   PROFILE_EDUCATION_UPDEATE,
   PROFILE_EDUCATION_DELETE,
-  PROFILE_EXPERIENCE_DELETE
+  PROFILE_EXPERIENCE_DELETE,
+  PROFILES_GET_ALL
 } from '../action/types';
 
 const initialState = {
@@ -28,6 +29,13 @@ export default function(state = initialState, action) {
         ...state,
         profile: payload,
         loading: false,
+        error: null
+      };
+    case PROFILES_GET_ALL:
+      return {
+        ...state,
+        profiles: payload,
+        lading: false,
         error: null
       };
     case PROFILE_ERROR:
