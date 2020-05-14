@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from './../../action/auth';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, history }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''

@@ -84,10 +84,11 @@ export const addExperience = (formData, history) => async dispatch => {
     history.push('/dashboard');
   } catch (error) {
     const err = error.response.data.error.errors;
+console.log(err);
 
     if (err) {
-      err.forEach(er => {
-        dispatch(setAlert(er.msg, 'danger'));
+      err.map(er => {
+        dispatch(setAlert(er.message, 'danger'));
       });
     }
 

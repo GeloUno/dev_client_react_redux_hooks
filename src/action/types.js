@@ -2,11 +2,13 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
+
 export const USER_LOAD = 'USER_LOAD';
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_ERROR = 'USER_ERROR';
 export const USER_FAIL = 'USER_FAIL';
 export const USER_LOGOUT = 'USER_LOGOUT';
+
 export const PROFILE_GET = 'PROFILE_GET';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const PROFILE_CLEAR = 'PROFILE_CLEAR';
@@ -15,3 +17,12 @@ export const PROFILE_EXPERIENCE_DELETE = 'PROFILE_EXPERIENCE_DELETE';
 export const PROFILE_EDUCATION_UPDEATE = 'PROFILE_EDUCATION_UPDEATE';
 export const PROFILE_EDUCATION_DELETE = 'PROFILE_EDUCATION_DELETE';
 export const PROFILES_GET_ALL = 'PROFILES_GET_ALL';
+
+export const POSTS_GET = 'POSTS_GET';
+export const POST_GET = 'POST_GET';
+export const POST_ADD = 'POST_ADD';
+export const POST_DELETE = 'POST_DELETE';
+export const POSTS_GET_ERROR = 'POSTS_GET_ERROR';
+export const POST_GET_ERROR = 'POST_GET_ERROR';
+export const POST_COMMENT_ADD = 'POST_COMMENT_ADD';
+
