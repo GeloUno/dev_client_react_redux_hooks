@@ -1,5 +1,6 @@
 {
   "homepage": "https://gelouno.github.io/dev_client_react_redux_hooks/",
+  "proxy": "https://minifacebookdeveloperserver.herokuapp.com/",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -42,7 +43,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://minifacebookdeveloperserver.herokuapp.com/",
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }
