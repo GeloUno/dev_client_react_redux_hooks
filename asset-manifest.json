@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/dev_client_react_redux_hooks/static/css/main.987bf08f.chunk.css",
-    "main.js": "/dev_client_react_redux_hooks/static/js/main.1ee839df.chunk.js",
-    "main.js.map": "/dev_client_react_redux_hooks/static/js/main.1ee839df.chunk.js.map",
+    "main.css": "/dev_client_react_redux_hooks/static/css/main.f1fbd7ce.chunk.css",
+    "main.js": "/dev_client_react_redux_hooks/static/js/main.9288fcc2.chunk.js",
+    "main.js.map": "/dev_client_react_redux_hooks/static/js/main.9288fcc2.chunk.js.map",
     "runtime~main.js": "/dev_client_react_redux_hooks/static/js/runtime~main.c378502c.js",
     "runtime~main.js.map": "/dev_client_react_redux_hooks/static/js/runtime~main.c378502c.js.map",
     "static/js/2.0f8a2bca.chunk.js": "/dev_client_react_redux_hooks/static/js/2.0f8a2bca.chunk.js",
     "static/js/2.0f8a2bca.chunk.js.map": "/dev_client_react_redux_hooks/static/js/2.0f8a2bca.chunk.js.map",
     "index.html": "/dev_client_react_redux_hooks/index.html",
-    "precache-manifest.d91f98d5984a9867dd269c96c3170c11.js": "/dev_client_react_redux_hooks/precache-manifest.d91f98d5984a9867dd269c96c3170c11.js",
+    "precache-manifest.83d01166f2ba98289b7b61a2739a3f9e.js": "/dev_client_react_redux_hooks/precache-manifest.83d01166f2ba98289b7b61a2739a3f9e.js",
     "service-worker.js": "/dev_client_react_redux_hooks/service-worker.js",
-    "static/css/main.987bf08f.chunk.css.map": "/dev_client_react_redux_hooks/static/css/main.987bf08f.chunk.css.map",
+    "static/css/main.f1fbd7ce.chunk.css.map": "/dev_client_react_redux_hooks/static/css/main.f1fbd7ce.chunk.css.map",
     "static/media/App.css": "/dev_client_react_redux_hooks/static/media/showcase.4b31330b.jpg"
   }
 }
